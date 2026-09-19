@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 — Page Not Found | The Porters Clan</title>
+  <meta name="description" content="This page doesn't exist. But your potential does. The Porters Clan.">
+  <meta name="robots" content="noindex, follow">
+  <link rel="icon" type="image/svg+xml" href="/assets/logo/favicon.svg">
+
+  <!-- Google Fonts: Outfit (Display) & Inter (Body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg-black: #0A0A0A;
+      --bg-card: #121212;
+      --text-cream: #F5F2EB;
+      --text-cream-muted: #9E9B93;
+      --text-cream-dim: #63615B;
+      --accent-red: #DD2B2C;
+      --accent-red-hover: #C42425;
+      --font-display: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-black);
+      color: var(--text-cream);
+      font-family: var(--font-body);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow-x: hidden;
+      position: relative;
+      selection-background-color: var(--accent-red);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    ::selection {
+      background: var(--accent-red);
+      color: var(--text-cream);
+    }
+
+    /* Ambient background gradient effect */
+    .ambient-glow {
+      position: absolute;
+      top: 30%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(221, 43, 44, 0.12) 0%, rgba(10, 10, 10, 0) 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Header */
+    header {
+      position: relative;
+      z-index: 10;
+      padding: 2.5rem 3rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.85rem;
+      text-decoration: none;
+      color: var(--text-cream);
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: opacity 0.2s ease;
+    }
+
+    .brand-link:hover {
+      opacity: 0.85;
+    }
+
+    .brand-logo-mark {
+      width: 32px;
+      height: 32px;
+      display: block;
+    }
+
+    /* Main Container */
+    main {
+      position: relative;
+      z-index: 10;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.35rem 0.9rem;
+      background: rgba(221, 43, 44, 0.12);
+      border: 1px solid rgba(221, 43, 44, 0.3);
+      border-radius: 9999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent-red);
+      margin-bottom: 2rem;
+    }
+
+    .status-badge-dot {
+      width: 6px;
+      height: 6px;
+      background-color: var(--accent-red);
+      border-radius: 50%;
+    }
+
+    .error-code {
+      font-family: var(--font-display);
+      font-size: clamp(6.5rem, 18vw, 12rem);
+      font-weight: 900;
+      line-height: 0.9;
+      letter-spacing: -0.04em;
+      color: var(--text-cream);
+      margin-bottom: 1.5rem;
+      user-select: none;
+      text-shadow: 0 0 60px rgba(221, 43, 44, 0.2);
+    }
+
+    .error-code span {
+      color: var(--accent-red);
+    }
+
+    .error-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+      font-weight: 700;
+      line-height: 1.25;
+      color: var(--text-cream);
+      margin-bottom: 1.25rem;
+      letter-spacing: -0.01em;
+    }
+
+    .error-message {
+      font-size: clamp(1rem, 2vw, 1.15rem);
+      line-height: 1.6;
+      color: var(--text-cream-muted);
+      max-width: 480px;
+      margin: 0 auto 2.5rem;
+    }
+
+    .actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      background-color: var(--accent-red);
+      color: #FFFFFF;
+      text-decoration: none;
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 0.95rem;
+      letter-spacing: 0.04em;
+      padding: 0.85rem 2rem;
+      border-radius: 6px;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      border: 1px solid var(--accent-red);
+      box-shadow: 0 4px 20px rgba(221, 43, 44, 0.35);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--accent-red-hover);
+      border-color: var(--accent-red-hover);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 24px rgba(221, 43, 44, 0.45);
+    }
+
+    .btn-primary svg {
+      width: 16px;
+      height: 16px;
+      transition: transform 0.2s ease;
+    }
+
+    .btn-primary:hover svg {
+      transform: translateX(-3px);
+    }
+
+    /* Footer */
+    footer {
+      position: relative;
+      z-index: 10;
+      padding: 2rem 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid rgba(245, 242, 235, 0.08);
+      font-size: 0.85rem;
+      color: var(--text-cream-dim);
+    }
+
+    footer a {
+      color: var(--text-cream-muted);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    footer a:hover {
+      color: var(--text-cream);
+    }
+
+    @media (max-width: 640px) {
+      header {
+        padding: 1.75rem 1.5rem 1rem;
+      }
+      footer {
+        padding: 1.5rem;
+        flex-direction: column;
+        gap: 0.75rem;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="ambient-glow" aria-hidden="true"></div>
+
+  <header>
+    <a href="/" class="brand-link" aria-label="The Porters Clan Home">
+      <svg class="brand-logo-mark" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="256" cy="256" r="240" fill="#DD2B2C"/>
+        <circle cx="256" cy="180" r="80" fill="white"/>
+        <path d="M120 380 L256 240 L392 380 L320 380 L256 310 L192 380 Z" fill="white"/>
+      </svg>
+      <span>The Porters Clan</span>
+    </a>
+  </header>
+
+  <main>
+    <div class="status-badge">
+      <span class="status-badge-dot"></span>
+      <span>Lost in transit</span>
+    </div>
+
+    <h1 class="error-code" aria-label="Error 404">4<span>0</span>4</h1>
+
+    <h2 class="error-title">This page doesn't exist. But your potential does.</h2>
+
+    <p class="error-message">
+      The coordinates you entered don't lead to a destination. Let's redirect your energy back to where the climb begins.
+    </p>
+
+    <div class="actions">
+      <a href="/" class="btn-primary">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        <span>Go Home</span>
+      </a>
+    </div>
+  </main>
+
+  <footer>
+    <div>&copy; The Porters Clan. All rights reserved.</div>
+    <div>theportersclan.com</div>
+  </footer>
+</body>
+</html>
